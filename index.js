@@ -93,9 +93,9 @@ function guessLetters () {
 
             // if guessed a correct letter, say so
             if (wordOne.guessLetter(userGuess)) {
-                console.log("\nCorrect!");
+                console.log("\nCorrect!" + "  (Remaining Guesses: " + guessesLeft);
             } else {
-                console.log("\nTry another letter.");
+                console.log("\nTry another letter." + "  (Remaining Guesses: " + guessesLeft);
             }
 
             // guess again
