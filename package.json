@@ -1,0 +1,22 @@
+{
+  "name": "word-guess-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpauletti/word-guess-cli.git"
+  },
+  "author": "Julia Pauletti",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jpauletti/word-guess-cli/issues"
+  },
+  "homepage": "https://github.com/jpauletti/word-guess-cli#readme",
+  "dependencies": {
+    "inquirer": "^6.3.1"
+  }
+}

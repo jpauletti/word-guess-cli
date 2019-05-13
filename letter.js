@@ -27,10 +27,20 @@ var Letter = function (newLetter) {
     this.guess = function (guessedLetter) {
         if (guessedLetter.toLowerCase() === this.char.toLowerCase()) {
             this.isGuessed = true;
+            return true;
         }
     };
 };
 
+
+// var one = new Letter("m");
+// console.log(one.char);
+// console.log(one.isGuessed);
+// console.log(one.returnDisplayChar());
+// console.log(one.guess("d"));
+// console.log(one.isGuessed);
+// console.log(one.guess("m"));
+// console.log(one.isGuessed);
 
 
 

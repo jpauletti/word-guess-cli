@@ -27,23 +27,43 @@ var Word = function (newWord) {
             fullWord += this.letters[i].returnDisplayChar();
         }
 
+        // log/display word in console
         return fullWord;
     };
 
     // guesses a new letter - runs for each letter in word
     this.guessLetter = function (guessedLetter) {
+        var guessedRight = false;
         for (var i = 0; i < this.letters.length; i++) {
             this.letters[i].guess(guessedLetter);
+            if (this.letters[i].guess(guessedLetter)) {
+                guessedRight = true;
+            }
+        }
+
+        if (guessedRight) {
+            return true;
         }
     };
+
+
+    this.showFullWord = function () {
+        var fullWord = "";
+        for (var i = 0; i < this.letters.length; i++) {
+            fullWord += this.letters[i].char;
+        }
+
+        // log/display full word in console
+        return fullWord;
+    }
 };
 
 
-var one = new Word("testing");
-// console.log(one.letters);
-var test = one.returnWord();
-// console.log(test);
+// var one = new Word("testing");
 // console.log(one.letters);
 
-one.guessLetter("t");
-console.log(one.returnWord());
+// one.guessLetter("t");
+// one.returnWord();
+
+
+module.exports = Word;
