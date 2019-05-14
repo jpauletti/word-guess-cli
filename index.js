@@ -24,7 +24,7 @@ function startGame () {
     guessesLeft = 10;
 
     // randomly select word
-    var randomWord = "mitochondria";
+    var randomWord = "hello there";
 
     // store it in a word constructor
     wordOne = new Word(randomWord);
@@ -104,7 +104,8 @@ function guessLetters () {
         } else { // out of guesses
             console.log("\nSorry, you're out of guesses!");
             // show full word
-            console.log("The word was: " + wordOne.showFullWord());
+            console.log("The word was: " + wordOne.fullWord);
+            // console.log(wordOne.fullWord.split("").join(" "));
             // ask if they want to play again
             playAgain();
         }

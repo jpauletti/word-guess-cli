@@ -13,6 +13,8 @@ var Letter = require("./letter.js");
 
 var Word = function (newWord) {
     // make array of letter objects
+    
+    this.fullWord = newWord;
     this.letters = [];
     for (var i = 0; i < newWord.length; i++) {
         var newLetter = new Letter(newWord[i]);
@@ -47,15 +49,15 @@ var Word = function (newWord) {
     };
 
 
-    this.showFullWord = function () {
-        var fullWord = "";
-        for (var i = 0; i < this.letters.length; i++) {
-            fullWord += this.letters[i].char;
-        }
+    // this.showFullWord = function () {
+    //     var fullWord = "";
+    //     for (var i = 0; i < this.letters.length; i++) {
+    //         fullWord += this.letters[i].char;
+    //     }
 
-        // log/display full word in console
-        return fullWord;
-    }
+    //     // log/display full word in console
+    //     return fullWord;
+    // }
 };
 
 
