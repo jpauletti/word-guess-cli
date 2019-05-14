@@ -78,7 +78,7 @@ function guessLetters () {
         wordOne.guessLetter(userGuess);
 
         // display updated word
-        console.log(wordOne.returnWord());
+        console.log("\n" + wordOne.returnWord());
 
         // either you win or you guess again
         if (wordOne.returnWord().indexOf("_") === -1 && guessesLeft > 0) {

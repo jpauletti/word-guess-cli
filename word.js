@@ -24,7 +24,7 @@ var Word = function (newWord) {
     this.returnWord = function () {
         var fullWord = "";
         for (var i = 0; i < this.letters.length; i++) {
-            fullWord += this.letters[i].returnDisplayChar();
+            fullWord += this.letters[i].returnDisplayChar() + " ";
         }
 
         // log/display word in console
