@@ -12,9 +12,8 @@ var Letter = require("./letter.js");
 
 
 var Word = function (newWord) {
-    // make array of letter objects
-    
     this.fullWord = newWord;
+    // make array of letter objects
     this.letters = [];
     for (var i = 0; i < newWord.length; i++) {
         var newLetter = new Letter(newWord[i]);

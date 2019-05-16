@@ -13,7 +13,7 @@ var alreadyGuessed = [];
 
 function selectWord () {
     // randomly select word
-    var randomNumber = Math.floor(Math.random() * (wordList.length - 1)) + 1;
+    var randomNumber = Math.floor(Math.random() * wordList.length);
     if (wordList[randomNumber] !== previousWord) {
         var randomWord = wordList[randomNumber];
         previousWord = randomWord;
