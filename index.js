@@ -1,19 +1,4 @@
-// * **index.js**: The file containing the logic for the course of the game, which depends on `Word.js` and:
-
-// * Randomly selects a word and uses the `Word` constructor to store it
-
-// * Prompts the user for each guess and keeps track of the user's remaining guesses
-
-// 3. `Letter.js` *should not* `require` any other files.
-
-// 4. `Word.js` *should only* require `Letter.js`
-
-// 5. **HINT:** Write `Letter.js` first and test it on its own before moving on, then do the same thing with `Word.js`
-
-// 6. **HINT:** If you name your letter's display function `toString`, JavaScript will call that function automatically whenever casting that object to a string (check out this example: <https://jsbin.com/facawetume/edit?js,console>)
-
-
-// pull in word (and letter) constructors
+// pull in word/letter constructors, words array, and inquirer
 var Word = require("./word.js");
 var wordList = require("./words.js");
 var inquirer = require("inquirer");
@@ -25,15 +10,13 @@ var previousWord = "";
 var wordOne = "";
 var alreadyGuessed = [];
 
+
 function selectWord () {
     // randomly select word
     var randomNumber = Math.floor(Math.random() * (wordList.length - 1));
-    console.log("previous word: " + previousWord);
-    console.log("maybe new word: " + wordList[randomNumber]);
     if (wordList[randomNumber] !== previousWord) {
         var randomWord = wordList[randomNumber];
         previousWord = randomWord;
-        console.log("setting previous word: " + previousWord);
 
         // store it in a word constructor
         wordOne = new Word(randomWord);
@@ -41,6 +24,7 @@ function selectWord () {
         selectWord();
     }
 }
+
 
 // starts game
 function startGame () {
@@ -54,6 +38,7 @@ function startGame () {
     selectWord();
 
     // show word for first time
+    console.log('The theme is "Harry Potter."');
     console.log("Your word is: \n")
     console.log(wordOne.returnWord());
 
