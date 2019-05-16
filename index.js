@@ -15,19 +15,43 @@
 
 // pull in word (and letter) constructors
 var Word = require("./word.js");
+var wordList = require("./words.js");
 var inquirer = require("inquirer");
 
-var guessesLeft = 10;
+var guessesLeft = 0;
+var startingGuesses = 15;
+
+var previousWord = "";
 var wordOne = "";
+var alreadyGuessed = [];
 
-function startGame () {
-    guessesLeft = 10;
-
+function selectWord () {
     // randomly select word
-    var randomWord = "hello there";
+    var randomNumber = Math.floor(Math.random() * (wordList.length - 1));
+    console.log("previous word: " + previousWord);
+    console.log("maybe new word: " + wordList[randomNumber]);
+    if (wordList[randomNumber] !== previousWord) {
+        var randomWord = wordList[randomNumber];
+        previousWord = randomWord;
+        console.log("setting previous word: " + previousWord);
 
-    // store it in a word constructor
-    wordOne = new Word(randomWord);
+        // store it in a word constructor
+        wordOne = new Word(randomWord);
+    } else {
+        selectWord();
+    }
+}
+
+// starts game
+function startGame () {
+    // reset guesses
+    guessesLeft = startingGuesses;
+
+    // reset already guesses letters array
+    alreadyGuessed = [];
+
+    // choose a new word
+    selectWord();
 
     // show word for first time
     console.log("Your word is: \n")
@@ -38,6 +62,7 @@ function startGame () {
 }
 
 
+// end game prompt - play again or not?
 function playAgain () {
     inquirer.prompt([
         {
@@ -64,7 +89,10 @@ function guessLetters () {
             validate: function (value) {
                 // must be a letter and only one letter
                 var regex = /^[a-zA-Z]+$/;
-                if (value.match(regex) && value.length === 1) {
+                // if already guessed, let them enter another letter
+                if (alreadyGuessed.indexOf(value) > -1) {
+                    return "You've already guessed that letter - try another one."
+                } else if (value.match(regex) && value.length === 1) {
                     return true;
                 } else {
                     // error message
@@ -75,12 +103,19 @@ function guessLetters () {
     ]).then(function (response) {
         // save guess, and run guess letter function
         var userGuess = response.guess;
+
+        // add to array of guessed letters
+        alreadyGuessed.push(userGuess);
+        // guess the letter against the chosen word
         wordOne.guessLetter(userGuess);
+
+        // display guessed letters
+        console.log("Letters Guessed: " + alreadyGuessed.join(" "));
 
         // display updated word
         console.log("\n" + wordOne.returnWord());
 
-        // either you win or you guess again
+        // either you win, you guess again, or you're out of guesses
         if (wordOne.returnWord().indexOf("_") === -1 && guessesLeft > 0) {
             // var divider = "============================";
             console.log("\n\n- - - - YOU WIN! - - - -");
