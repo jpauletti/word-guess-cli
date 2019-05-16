@@ -13,7 +13,7 @@ var alreadyGuessed = [];
 
 function selectWord () {
     // randomly select word
-    var randomNumber = Math.floor(Math.random() * (wordList.length - 1));
+    var randomNumber = Math.floor(Math.random() * (wordList.length - 1)) + 1;
     if (wordList[randomNumber] !== previousWord) {
         var randomWord = wordList[randomNumber];
         previousWord = randomWord;
@@ -113,9 +113,9 @@ function guessLetters () {
 
             // if guessed a correct letter, say so
             if (wordOne.guessLetter(userGuess)) {
-                console.log("\nCorrect!" + "  (Remaining Guesses: " + guessesLeft);
+                console.log("\nCorrect!" + "  (Remaining Guesses: " + guessesLeft + ")");
             } else {
-                console.log("\nTry another letter." + "  (Remaining Guesses: " + guessesLeft);
+                console.log("\nTry another letter." + "  (Remaining Guesses: " + guessesLeft + ")");
             }
 
             // guess again
