@@ -39,7 +39,7 @@ function startGame () {
 
     // show word for first time
     console.log('The theme is "Harry Potter."');
-    console.log("Your word is: \n")
+    console.log("Here's your word: \n")
     console.log(wordOne.returnWord());
 
     // start guessing
@@ -125,7 +125,7 @@ function guessLetters () {
             console.log("\nSorry, you're out of guesses!");
             // show full word
             console.log("The word was: " + wordOne.fullWord);
-            // console.log(wordOne.fullWord.split("").join(" "));
+
             // ask if they want to play again
             playAgain();
         }

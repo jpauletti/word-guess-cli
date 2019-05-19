@@ -5,7 +5,6 @@ var wordList = [
     "Ginny",
     "Lockhart",
     "Mad Eye",
-    "Nymphadora",
     "Hagrid",
     "Dumbledore",
     "Snape",
@@ -16,13 +15,11 @@ var wordList = [
     "Dementor",
     "Werewolf",
     "Niffler",
-    "Bowtruckle",
     "Phoenix",
     "Quidditch",
     "Firebolt",
     "Azkaban",
-    "Scabbers",
-    "Crookshanks"
+    "Scabbers"
 ];
 
 module.exports = wordList;
