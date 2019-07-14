@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/jpauletti/word-guess-cli#readme",
   "dependencies": {
-    "inquirer": "^6.3.1"
+    "inquirer": "^6.5.0"
   }
 }
